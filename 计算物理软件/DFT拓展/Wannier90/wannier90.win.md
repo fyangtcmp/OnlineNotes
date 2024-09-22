@@ -1,4 +1,4 @@
-wannier90.win 是 Wannier90 软件控制参数的输入文件，地位类似于 VASP 的 INCAR 文件。它的正式名称为\<seedname\>.win，在对接 QE、Wien2k、OpenMX 等输入文件名可变的 DFT 软件时，它的前缀也是可变的。但 VASP 所有输入输出文件的名称都是固定的，所以\<seedname\>.win 也不能免俗，被固定为 wannier90.win
+wannier90.win 是 Wannier90 软件控制参数的输入文件，地位类似于 VASP 的 INCAR 文件。它的正式名称为 `<seedname>.win`，在对接 QE、Wien2k、OpenMX 等输入文件名可变的 DFT 软件时，它的前缀也是可变的。但 VASP 所有输入输出文件的名称都是固定的，所以 `<seedname>.win` 也不能免俗，被固定为  `wannier90.win`
 我们先给出一个常规输入文件的范例
 
 ```
@@ -42,6 +42,8 @@ use_ws_distance=.false.
 
 顺便一提，虽然 wannier90 内部提供两种宣称能够保持对称性的 wannier 函数构造方法，其一是symmetry-adapted Wannier functions，其二是 selectively localized Wannier functions，但前者只适用于 spinless 的系统，后者无法固定所有的投影子，必须保留一定的自由度，所以均不适合复杂磁性系统
 
-`dis_froz_min` `dis_froz_max` 不能选的太小，虽然减小窗口容易使得总展宽表面上减小，但其实有可能使窗口外的区域拟合程度下降
+`dis_froz_min` `dis_froz_max` 不能选的太小，虽然减小窗口容易使得总展宽表面上减小，但其实有可能使窗口外的区域拟合程度下降。能量窗口为绝对能量，而非相对于费米面的能量。
 
-`guiding_centres` 帮助减少展宽，参见[wannier90拟合之guiding_centre对spread的影响 (qq.com)](https://mp.weixin.qq.com/s/qRRNWmGjgYcZgGECdgbJdg)
+`guiding_centres` 帮助减少展宽，参见 [wannier90拟合之guiding_centre对spread的影响 (qq.com)](https://mp.weixin.qq.com/s/qRRNWmGjgYcZgGECdgbJdg)
+
+ `mp_grid`、`spinors`、原子坐标、晶格常数等参数，VASP 会自动传给 wannier90，如果使用 qe 等其他软件，则依然要手动写入完整的信息。
