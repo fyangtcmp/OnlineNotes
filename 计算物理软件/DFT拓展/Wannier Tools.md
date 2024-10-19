@@ -1,5 +1,7 @@
 ## ARPACK 安装
-来自莱斯大学的原版 arpack 虽然仍可正常编译，但已不再维护，这里使用 arpack-ng
+来自莱斯大学的原版 arpack 发布于 1996 年，曾经从互联网上短暂消失过一段时间，这是最近重新出现的一个源 https://www.arpack.org/home ，尚不清楚是否为原作者所有。编译需要仔细修改 ARmake.inc 中的内容
+
+另外有一个由民间小组维护的更新至现代编译框架的 arpack 版本
 [opencollab/arpack-ng: Collection of Fortran77 subroutines designed to solve large scale eigenvalue problems. (github.com)](https://github.com/opencollab/arpack-ng)
 编译
 ```
