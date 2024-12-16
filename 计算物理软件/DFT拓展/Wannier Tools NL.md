@@ -25,7 +25,7 @@ keywords = "Novel topological materials, Topological number, Surface state, Tigh
 1. Calculate some types of nonlinear transport conductivities, see Usage for detailed information
 2. Calculate both spin and orbital magnetic moments and their contributions to the conductivities which are involved with B field
 3. Add effective spin and orbital Zeeman field for spinful Wannier functions, the formulas please see the [Referenece](https://arxiv.org/abs/1512.05084).
-4. Because the calculations of these conductivities are heavy, we only support the parallel version. Executing the code with only one CPU core will not work due to the asynchronous parallel algorithm (异步并行)
+4. Because the calculations of these conductivities are heavy, we only support the parallel version. Executing the code with only one CPU core will not work due to the asynchronous parallel algorithm
 
 ## Usage
 
