@@ -22,7 +22,7 @@ Wannier90 的拟合质量，以及 wannier90_hr.dat 文件的大小，都与 K �
 NCORE  = 1
 ICHARG = 11
 ISYM   = -1
-NBANDS = 168
+NBANDS = 160
 
 LWANNIER90 = .TRUE.
 ```
@@ -62,12 +62,12 @@ LLIBS += $(WANNIER90_ROOT)/libwannier.a
 ```fortran
 NCORE  = 1
 ICHARG = 11
-NBANDS = 168
+NBANDS = 160
 
 LWANNIER90_RUN = .TRUE.
 LWRITE_SPN = .TRUE.
 
-NUM_WANN = 72
+NUM_WANN = 88
 
 WANNIER90_WIN="
 exclude_bands= 1-48
@@ -99,6 +99,6 @@ use_ws_distance=.false.
 1. 使用 `LWANNIER90_RUN` 直接在 VASP 运行过程中进行 wannier 拟合
 2. 官方支持了 `LWRITE_SPN` 功能，可以在并行计算中正常写入了
 3. `NUM_WANN` 必须直接写入INCAR以便 VASP 识别
-4. 以前需要预先写在 wannier90.win 中的信息，现在都放在 `WANNIER90_WIN` 这个 tag 中，由 VASP 自动创建 `wannier90.win` 并写入。注意 `num_bands` 和 `num_wann` 不再需要了，由 VASP 根据 `exclude_bands` 自动计算
+4. 以前需要预先写在 wannier90.win 中的信息，现在都放在 `WANNIER90_WIN` 这个 tag 中，由 VASP 自动创建 `wannier90.win` 并写入。注意 `num_bands` 不再需要了，由 VASP 根据 `exclude_bands` 自动计算，比如在上面这个例子里 `num_bands=112` 
 5. 修正了上文中提到的需要关闭对称性的 bug（存疑）
 6. 会将 wannier center 的位置从常规 `POSCAR` 文件采取的 $[0, 1]$ 分数坐标区间平移至$[-0.5, 0.5]$ 区间内，所以对称化 wannier 时需要将 `POSCAR` 平移半个周期

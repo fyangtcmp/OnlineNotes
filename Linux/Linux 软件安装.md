@@ -1,14 +1,22 @@
 ## HDF5
-最后没安成功...
+设置环境变量
 ```bash
-./configure CC=icc CXX=icpc --prefix=/usr/local/hdf5 --enable-cxx=yes --enable-fortran=yes
+export CC=mpiicc
+export CXX=icc
+export FC=mpiifort
+export CPP=cpp
+export CFLAGS="-O3 -xHost"
+export CXXFLAGS="-O3 -xHost"
+export FCFLAGS="-O3 -xHost"
 ```
-
+手动打开 Fortran 支持
+```bash
+./configure --prefix=/usr/local/ --enable-fortran
+```
+然后 make
 在.bashrc 中加入以下内容
 ```bash
-export LD_LIBRARY_PATH=$LD_LIBRARY_PATH:/usr/local/hdf5/lib
-export PATH=$PATH:/usr/local/hdf5/bin
-export CPATH=:$CPATH:/usr/local/hdf5/include
+export LD_LIBRARY_PATH=$LD_LIBRARY_PATH:/usr/local/lib
 ```
 ## X11
 
