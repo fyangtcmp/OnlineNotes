@@ -16,7 +16,7 @@ Wannier90 的拟合质量，以及 wannier90_hr.dat 文件的大小，都与 K �
 
 如果投影能带发现区间内的能带总数少于投影子的数目，这是因为远离费米面处的导带数目是 VASP 随意取定的，可以手动指定NBANDS以增加能带总数。注意NBANDS必须可以被并行核数整除
 
-编写wannier90.win文件。添加INCAR参数（关闭 NCORE），再运行 VASP
+编写 [[DFT拓展/Wannier90/wannier90.win|wannier90.win]] 文件。添加INCAR参数（关闭 NCORE），再运行 VASP
 
 ```fortran
 NCORE  = 1
@@ -33,7 +33,7 @@ LWANNIER90 = .TRUE.
 
 ICHARG=11是为了加速收敛，某些磁性体系自洽收敛很困难，即使从上一步已经收敛的结果出发重新做自洽，也需要迭代很多步，因此采用非自洽。
 
-ISYM需要关闭，原因参见 vasp 官网“Known issues”页面的说明
+ISYM需要关闭（根据实际测试即使是 `ISPIN=2` 的共线计算也最好关闭），原因参见 vasp 官网“Known issues”页面的说明
 > **Interface to Wannier90 and PEAD calculations lead to incorrect results for non-collinear spin calculations when symmetries are used**: The rotation of the spinor part of the wavefunctions was missing which leads to incorrect results when computing the projections and overlaps written to the AMN and MMN files used by Wannier90 when LNONCOLLINEAR=.TRUE. and ISYM>=0 are set in the INCAR file. The fix for previous versions is to use ISYM=-1.
 
 #### 4 运行wannier90主程序

@@ -42,7 +42,7 @@ use_ws_distance=.false.
 
 顺便一提，虽然 wannier90 内部提供两种宣称能够保持对称性的 wannier 函数构造方法，其一是symmetry-adapted Wannier functions，其二是 selectively localized Wannier functions，但前者只适用于 spinless 的系统，后者无法固定所有的投影子，必须保留一定的自由度，所以均不适合复杂磁性系统
 
-`dis_froz_min` `dis_froz_max` 不能选的太小，虽然减小窗口容易使得总展宽表面上减小，但其实有可能使窗口外的区域拟合程度下降。能量窗口为绝对能量，而非相对于费米面的能量。如果 `num_wan` = `num_band`，wannier90 不解纠缠，能量窗口参数将不起作用。
+`dis_froz_min` `dis_froz_max` 不能选的太小，虽然减小窗口容易使得总展宽的数值减小，但有可能使窗口外的区域拟合程度下降，所以必须包含我们所希望拟合的全部能带范围。能量窗口为绝对能量，而非相对于费米面的能量。如果 `num_wan` = `num_band`，wannier90 不解纠缠，能量窗口参数将不起作用。
 
 `guiding_centres` 帮助减少展宽，参见 [wannier90拟合之guiding_centre对spread的影响 (qq.com)](https://mp.weixin.qq.com/s/qRRNWmGjgYcZgGECdgbJdg)
 
