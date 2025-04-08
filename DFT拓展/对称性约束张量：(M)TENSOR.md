@@ -58,6 +58,7 @@ $$
 
 | Type              | Jahn's symbol | Reference                       |
 | ----------------- | ------------- | ------------------------------- |
+| AHC               | `aV`          |                                 |
 | intrinsic 2nd AHC | `a{V2}V`      | 10.1103/PhysRevLett. 127.277202 |
 | extrinsic 2nd AHC | `V3`          | 10.1103/PhysRevLett. 115.216806 |
 | T-odd 2nd CISP    | `aeV3`        | 10.1103/PhysRevLett. 129.086602 |
@@ -65,3 +66,4 @@ $$
 | SHC               | `eV3`         | 10.1103/RevModPhys. 87.1213     |
 | intrinsic NPHC    | `e{V2}V2`     | 10.1103/PhysRevLett. 130.126303 |
 | 3rd (A)HC         | `{V2}V2`      | 10.1103/PhysRevB. 105.045118    |
+

@@ -32,3 +32,6 @@ vi /etc/security/limits.conf
 * hard nproc 2000000
 * soft nproc 2000000
 ```
+
+## 并行控制
+使用 intel 编译的程序，需要配合 intel 的 mpirun 才不容易出问题。但如果你启用了 conda 环境的话，里面有可能也带着一个 python 版的 mpirun，这时候如果你在 bashrc 里是先 source intel 的环境，后激活 conda，就会导致 python 的 mpirun 覆盖掉 intel 的 mpirun

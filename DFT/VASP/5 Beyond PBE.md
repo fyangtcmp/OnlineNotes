@@ -14,7 +14,7 @@ vaspkit -task 251
 ```
 ### 自洽法
 
-先做一个 PBE 自洽，得到收敛的基态，注意这里已经需要使用包含权重为 0 的 k 点的 KPOINTS 。
+先做 PBE 自洽，得到收敛的基态，注意这里已经需要使用包含权重为 0 的 k 点的 KPOINTS 。
 然后读入 PBE 自洽的基态波函数（不读取电荷密度）进行 mBJ 计算。
 mBJ 计算不支持对 K 点并行，所以只能通过 NCORE 设置并行参数，不能使用 KPAR。
 
@@ -61,27 +61,31 @@ CMBJ =
 ### K 点选取
 和 [[5 Beyond PBE#mBJ 泛函|mBJ泛函]]相同
 ### 自洽计算
-先做一步 PBE 自洽
-因为 HSE 自洽很难收敛，所以取 ALGO=Damped，减少收敛精度至 1e-5。使用 ISTART=1 读入上一步 PBE 自洽的波函数
-
+先完成 PBE 自洽，使用 ISTART=1 读入上一步 PBE 自洽的波函数。
+在计算杂化泛函时，VASP 推荐在大多数情况下将电子迭代算法设为 `ALGO=Damped`。或者 `ALGO=All`，经过相同算例测试，总耗时约慢 7%，但也能收敛。使用默认的 `ALGO = Normal` 虽然不会直接报错，但 vaspwiki 警告这一般会导致更加慢的计算速度或者干脆无法收敛。
+`TIME` 是以上两种推荐的算法中所需要用到的时间步长，如果不收敛的话可以尝试降低 `TIME` 的值。具体而言，默认值 0.4 的收敛性较好，vaspwiki 某些页面会使用 0.5 的值，这个实测容易导致不收敛。
+`HFSCREEN` 为库伦屏蔽参数，对于 HSE06 这一值固定为 0.2
+最后，因为杂化泛函本身还是特别难收敛，放宽收敛精度至 1e-5。
 ```fortran
 ISTART = 1 
 
 HSE06 Calculation
 
-ALGO = Damped
-TIME = 0.5
 LHFCALC = .TRUE.
-GGA = PE
+ALGO = Damped
+TIME = 0.4
 HFSCREEN = 0.2
 EDIFF = 1E-05
 ```
-### 罕见错误
-
-```fortran
-internal error in SET_INDPW_FULL: insufficient memory (see wave.F safeguard)
+### 拟合 wannier 函数
+即使在读入已经收敛的杂化泛函的波函数的情况下，续算的结果也很有可能再次发散，因此我们必须做以下特殊处理：
+1. 只进行一步空的电子迭代 （记得删除之前对 `NELM` 的设置）
 ```
-~~这并非真正的系统内存不足，而是 VASP 本身在预分配波函数内存空间时，给出的一个非常保守的警示。使用 VASP.6.3.0 可以避免这一问题~~，K 点过多也可能会导致这一问题
+ALGO = NONE
+NELM = 1
+```
+2. 使用 vasp.6.4.3 以后的版本，可以不用关闭对称性，减少 k 点的计算量
+
 
 ## 其他杂化泛函
 

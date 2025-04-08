@@ -21,7 +21,7 @@ sudo make install
 ### module.f90
 
 Fortran中所有变量必须预先定义，因此我们需要在module para中将新功能的tag作为logical变量定义在这里，然后加入下方的namelist / Control /
-### readinput.f90
+### readinput.f90 (可能不用加)
 
 为所有CONTROL namelist的变量赋缺省值false
 ### \<subroutine\>.f90

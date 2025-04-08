@@ -41,9 +41,9 @@ ISYM需要关闭（根据实际测试即使是 `ISPIN=2` 的共线计算也最�
 mpirun -np 16 wannier90.x wannier90
 ```
 
-## VASP 6.4.3 版
+## VASP 6.4.3 版+
 
-参见 VASP 官网“Known issues”页面，以及本人实际测试，VASP6 更新带来了很多对接 wannier 的问题，所以必须使用标题所述的最新版（截止 2024 年 9 月）
+参见 VASP 官网“Known issues”页面，以及本人实际测试，VASP6 更新带来了很多对接 wannier 的问题，所以必须使用 VASP 6.4.3 之后的版本
 ### 编译
 
 按照 VASP 官网的说明，编译串行版本的 wannier90 库文件 `libwannier.a`。在 `makefile.include` 中写入 wannier90 的安装位置，并将以下内容
@@ -65,7 +65,7 @@ ICHARG = 11
 NBANDS = 160
 
 LWANNIER90_RUN = .TRUE.
-LWRITE_SPN = .TRUE.
+# LWRITE_SPN = .TRUE.
 
 NUM_WANN = 88
 
@@ -97,8 +97,8 @@ use_ws_distance=.false.
 
 与 VASP 5.4.4 的几点不同：
 1. 使用 `LWANNIER90_RUN` 直接在 VASP 运行过程中进行 wannier 拟合
-2. 官方支持了 `LWRITE_SPN` 功能，可以在并行计算中正常写入了
+2. ~~官方支持了 `LWRITE_SPN` 功能，可以在并行计算中正常写入了~~ 经测试，在某些未知条件下，打开这个 tag 会导致 VASP 计算 `num_bands` 出错（可以通过检查 `wannier90.win` 确认这一问题的出现），进而导致拟合 wannier 卡死，但不跳出任何报错信息
 3. `NUM_WANN` 必须直接写入INCAR以便 VASP 识别
 4. 以前需要预先写在 wannier90.win 中的信息，现在都放在 `WANNIER90_WIN` 这个 tag 中，由 VASP 自动创建 `wannier90.win` 并写入。注意 `num_bands` 不再需要了，由 VASP 根据 `exclude_bands` 自动计算，比如在上面这个例子里 `num_bands=112` 
-5. 修正了上文中提到的需要关闭对称性的 bug（存疑）
-6. 会将 wannier center 的位置从常规 `POSCAR` 文件采取的 $[0, 1]$ 分数坐标区间平移至$[-0.5, 0.5]$ 区间内，所以对称化 wannier 时需要将 `POSCAR` 平移半个周期
+5. 修正了上文中提到的需要关闭对称性的 bug
+6. 有时候会将 wannier center 的位置从常规 `POSCAR` 文件采取的 $[0, 1]$ 分数坐标区间平移至 $[-0.5, 0.5]$ 区间内，所以对称化 wannier 时需要将 `POSCAR` 平移半个周期
