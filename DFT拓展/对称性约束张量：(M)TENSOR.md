@@ -4,7 +4,7 @@
 磁点群和磁空间群：https://www.cryst.ehu.es/cgi-bin/cryst/programs/mtensor.pl
 参考文献：https://doi.org/10.1107/S2053273319001748
 ## 使用方法
-建立自定义张量基于的是 Jahn's symbol，具体记号法则可以在 https://www.cryst.ehu.es/html/cryst/mtensor_help.html 查阅，这里只提一个迷惑的点，那就是轴张量（axial tensor）的首字母是 a，但在 Jahn's symbol 里的代表字母是 e。时间反演下反号在 Jahn's symbol 里才是用字母 a 代表的。
+建立自定义张量基于的是 Jahn's symbol，具体记号法则可以在 https://www.cryst.ehu.es/html/cryst/mtensor_help.html 查阅，这里只提一个容易迷惑的点，那就是轴张量（axial tensor）的首字母是 a，但在 Jahn's symbol 里的代表字母是 e。时间反演下反号在 Jahn's symbol 里才是用字母 a 代表的。
 ### 例 1：BCD 贡献的非线性霍尔电导
 定义式为
 $$
@@ -53,17 +53,27 @@ $$
 $$
 显然等式右侧的 $\sigma_{ab}^c$ 也应当是时间反演不变的。又因为自旋极化 $s_c$ 是赝矢量，所以等式右侧的 $\sigma_{ab}^{c}$ 也需要是赝张量。汇总得到 $\sigma_{ab}^{c}$ 在 Jahn's symbol 中的形式为 `eV3`
 
-### 汇总
-大括号代表指标交换反对称，中括号代表指标交换对称。注意下表中对每个张量的指标是否具有对称/反对称关系的分析是不完整的
+### 汇总表
+除了 `a` 和 `e` 记号以外，Jahn's symbol 本身还支持张量指标交换对称反对称性的描述，大括号代表指标交换反对称，中括号代表指标交换对称。
 
-| Type              | Jahn's symbol | Reference                       |
-| ----------------- | ------------- | ------------------------------- |
-| AHC               | `aV`          |                                 |
-| intrinsic 2nd AHC | `a{V2}V`      | 10.1103/PhysRevLett. 127.277202 |
-| extrinsic 2nd AHC | `V3`          | 10.1103/PhysRevLett. 115.216806 |
-| T-odd 2nd CISP    | `aeV3`        | 10.1103/PhysRevLett. 129.086602 |
-| T-even 2nd CISP   | `eV3`         | 10.1103/PhysRevLett. 130.166302 |
-| SHC               | `eV3`         | 10.1103/RevModPhys. 87.1213     |
-| intrinsic NPHC    | `e{V2}V2`     | 10.1103/PhysRevLett. 130.126303 |
-| 3rd (A)HC         | `{V2}V2`      | 10.1103/PhysRevB. 105.045118    |
+|               Type | Jahn's symbol | Reference                |
+| -----------------: | ------------: | ------------------------ |
+|      intrinsic AHC |         a{V2} | *RevModPhys. 82.1539*    |
+|  intrinsic 2nd AHC |        a{V2}V | *PhysRevLett.127.277202* |
+|  intrinsic 3rd AHC |     a{V2}[V2] | *PhysRevB.107.075411*    |
+|      extrinsic AHC |          {V2} |                          |
+|  extrinsic 2nd AHC |         {V2}V | *PhysRevLett.115.216806* |
+|  extrinsic 3rd AHC |        {V2}V2 | *PhysRevB.105.045118*    |
+|                    |               |                          |
+|      intrinsic PHC |        e{V2}V | *PhysRevLett.132.056301* |
+|  intrinsic 2nd PHC |       e{V2}V2 | *PhysRevLett.130.126303* |
+|  extrinsic 2nd PHC |      ae{V2}V2 | *PhysRevB.108.075155*    |
+|                    |               |                          |
+|      intrinsic SHC |           eV3 | *RevModPhys. 87.1213*    |
+|  intrinsic 2nd SHC |           eV4 | *PhysRevLett.134.056301* |
+|      extrinsic SHC |          aeV3 |                          |
+|                    |               |                          |
+|               CISP |          aeV2 |                          |
+| intrinsic 2nd CISP |          aeV3 | *PhysRevLett.129.086602* |
+| extrinsic 2nd CISP |           eV3 | *PhysRevLett.130.166302* |
 
