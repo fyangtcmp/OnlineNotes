@@ -1,3 +1,11 @@
+## 一些细节
+新版 wannier tools 使用原子单位制，长度单位 Bohr，能量单位 Hartree
+
+按照 wannier tools 官网的说法，“选择轨道”不需要考虑自旋
+>In order to get the weight onto the projections, we need to set SELECTED_WANNIERORBITALS card. it The orbital index is corresponding to the PROJECTOS card, nothing related to spin freedom. For example In Bi2Se3, there are 30 Wannier functions in the hr.dat, however, there are only 15 projectors (orbitals). So indices in SELECTED_WANNIERORBITALS are from 1 to 15.  
+
+但是源码中按照 selected_atoms 翻译成轨道时，又变成了考虑自旋的，从 WT.out 就可以看出来
+
 ## ARPACK 安装
 来自莱斯大学的原版 arpack 发布于 1996 年，曾经从互联网上短暂消失过一段时间，这是最近重新出现的一个源 https://www.arpack.org/home ，尚不清楚是否为原作者所有。编译需要仔细修改 ARmake.inc 中的内容
 
