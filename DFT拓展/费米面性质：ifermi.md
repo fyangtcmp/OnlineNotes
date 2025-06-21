@@ -46,3 +46,15 @@ ifermi plot --projection-axis 0 0 1 --property spin \
 --plot-index 169 \
 --vnorm 3 --vector-spacing 0.025 \
 ```
+
+## 安装 Fermisurfer
+![](https://mitsuaki1987.github.io/fermisurfer/figs/stereogram.png)
+```bash
+brew install wxmac
+./configure
+make
+sudo make install
+```
+brew 反复安装提示出现404的lib
+https://github.com/mitsuaki1987/fermisurfer
+

@@ -4,7 +4,7 @@
 磁点群和磁空间群：https://www.cryst.ehu.es/cgi-bin/cryst/programs/mtensor.pl
 参考文献：https://doi.org/10.1107/S2053273319001748
 ## 使用方法
-建立自定义张量基于的是 Jahn's symbol，具体记号法则可以在 https://www.cryst.ehu.es/html/cryst/mtensor_help.html 查阅，这里只提一个容易迷惑的点，那就是轴张量（axial tensor）的首字母是 a，但在 Jahn's symbol 里的代表字母是 e。时间反演下反号在 Jahn's symbol 里才是用字母 a 代表的。
+建立自定义张量基于的是 [Jahn's symbol]([https://doi.org/10.1107/S0365110X49000060)，具体记号法则可以在 https://www.cryst.ehu.es/html/cryst/mtensor_help.html 查阅，这里只提一个容易迷惑的点，那就是轴张量（axial tensor）的首字母是 a，但在 Jahn's symbol 里的代表字母是 e。时间反演下反号在 Jahn's symbol 里才是用字母 a 代表的。
 ### 例 1：BCD 贡献的非线性霍尔电导
 定义式为
 $$
