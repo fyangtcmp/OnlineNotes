@@ -1,12 +1,11 @@
-基于wien2k_19.2版，Wien2Wannier 2.0版
-
+基于wien2k_19.2版
 能带计算完成后，创建子文件夹
 
 ```bash
-prepare_w2wdir /subdir
+prepare_w2wdir <subdir>
 ```
 
-设置参数，注意dmft需要k点为shifted，但这里做wannier需要为unshifted
+切换到 python2.7 环境，运行脚本，注意dmft需要k点为shifted，但这里做wannier需要为unshifted
 
 ```bash
 init_w2w

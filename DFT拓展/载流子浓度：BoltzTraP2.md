@@ -1,8 +1,10 @@
 ## 安装
 ```bash
-conda install -c conda-forge boltztrap2 pyfftw=0.12.0
+conda create -n boltztrap
+conda activate boltztrap
+conda install python=3.9
+pip install BoltzTraP2
 ```
-必须像这样指定安装旧版pyfftw
 
 ## 计算
 先做一个高密度 k-mesh 的 vasp 自洽计算，不需要 WAVECAR 和 CHGCAR。然后输入

@@ -24,3 +24,9 @@ export LD_LIBRARY_PATH=$LD_LIBRARY_PATH:/usr/local/lib
 ## MATLAB
 
 [Linux 命令行安装 matlab - scbox - 博客园 (cnblogs.com)]( https://www.cnblogs.com/scboy/articles/13206185.html "Linux 命令行安装 matlab - scbox - 博客园 (cnblogs.com)")
+
+## FFTW3
+
+```
+./configure --prefix=/usr/local --enable-mpi --enable-openmp --enable-threads --enable-avx2 --enable-avx512 MPICC=mpiicc CC=icc F77=ifort
+```

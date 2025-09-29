@@ -55,25 +55,27 @@ $$
 
 ### 汇总表
 除了 `a` 和 `e` 记号以外，Jahn's symbol 本身还支持张量指标交换对称反对称性的描述，大括号代表指标交换反对称，中括号代表指标交换对称。
+霍尔效应前两个指标的交换反对称性一般继承自贝里曲率，但是基于非平衡玻尔兹曼方程推导非本征霍尔效应时也会得到 Drude 效应的公式，这个是没有交换反对称性的。例如 *PhysRevB. 105.045118* 中的公式就是霍尔效应和 Drude 效应的总和
 
-|               Type | Jahn's symbol | Reference                |
-| -----------------: | ------------: | ------------------------ |
-|      intrinsic AHC |         a{V2} | *RevModPhys.82.1539*     |
-|  intrinsic 2nd AHC |        a{V2}V | *PhysRevLett.127.277202* |
-|  intrinsic 3rd AHC |     a{V2}[V2] | *PhysRevB.107.075411*    |
-|      extrinsic AHC |          {V2} |                          |
-|  extrinsic 2nd AHC |         {V2}V | *PhysRevLett.115.216806* |
-|  extrinsic 3rd AHC |        {V2}V2 | *PhysRevB.105.045118*    |
-|                    |               |                          |
-|      intrinsic PHC |        e{V2}V | *PhysRevLett.132.056301* |
-|  intrinsic 2nd PHC |       e{V2}V2 | *PhysRevLett.130.126303* |
-|  extrinsic 2nd PHC |      ae{V2}V2 | *PhysRevB.108.075155*    |
-|                    |               |                          |
-|      intrinsic SHC |           eV3 | *RevModPhys.87.1213*     |
-|  intrinsic 2nd SHC |           eV4 | *PhysRevLett.134.056301* |
-|      extrinsic SHC |          aeV3 | *PhysRevLett.119.187204* |
-|                    |               |                          |
-|     intrinsic CISP |          aeV2 | *PhysRevB.91.134402*     |
-|     extrinsic CISP |           eV2 | *PhysRevB.91.134402*     |
-| intrinsic 2nd CISP |          aeV3 | *PhysRevLett.129.086602* |
-| extrinsic 2nd CISP |           eV3 | *PhysRevLett.130.166302* |
+|                Type | Jahn's symbol | Reference                |
+| ------------------: | ------------: | ------------------------ |
+|       intrinsic AHC |         a{V2} | *RevModPhys.82.1539*     |
+|   intrinsic 2nd AHC |        a{V2}V | *PhysRevLett.127.277202* |
+|   intrinsic 3rd AHC |     a{V2}[V2] | *PhysRevB.107.075411*    |
+|       extrinsic AHC |          {V2} |                          |
+|   extrinsic 2nd AHC |         {V2}V | *PhysRevLett.115.216806* |
+|   extrinsic 3rd AHC |        {V2}V2 | *PhysRevB.105.045118*    |
+| extrinsic 3rd Drude |            V4 | *PhysRevB.105.045118*    |
+|                     |               |                          |
+|       intrinsic PHC |        e{V2}V | *PhysRevLett.132.056301* |
+|   intrinsic 2nd PHC |       e{V2}V2 | *PhysRevLett.130.126303* |
+|   extrinsic 2nd PHC |      ae{V2}V2 | *PhysRevB.108.075155*    |
+|                     |               |                          |
+|       intrinsic SHC |           eV3 | *RevModPhys.87.1213*     |
+|   intrinsic 2nd SHC |           eV4 | *PhysRevLett.134.056301* |
+|       extrinsic SHC |          aeV3 | *PhysRevLett.119.187204* |
+|                     |               |                          |
+|      intrinsic CISP |          aeV2 | *PhysRevB.91.134402*     |
+|      extrinsic CISP |           eV2 | *PhysRevB.91.134402*     |
+|  intrinsic 2nd CISP |          aeV3 | *PhysRevLett.129.086602* |
+|  extrinsic 2nd CISP |           eV3 | *PhysRevLett.130.166302* |
