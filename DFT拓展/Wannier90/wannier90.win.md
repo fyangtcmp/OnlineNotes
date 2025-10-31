@@ -16,7 +16,7 @@ dis_froz_min = -1
 dis_froz_max =  1
 dis_win_max  =  10
 
-iprint=2
+iprint=3
 dis_num_iter=200
 num_print_cycles=200
 num_iter=0
